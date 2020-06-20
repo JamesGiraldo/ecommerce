@@ -65,6 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 # gemas adicionales :v
+gem "haml-rails"
 gem "pry-rails"
 gem "annotate"
 gem "devise"
@@ -73,3 +74,6 @@ gem 'chartkick'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'font-awesome-rails'
 gem 'gretel'
+# bootstrap
+gem 'bootstrap', '~> 4.5.0'
+gem 'jquery-rails'

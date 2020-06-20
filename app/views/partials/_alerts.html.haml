@@ -1,0 +1,10 @@
+- if !notice.nil?
+  .alert.alert-dismissible.alert-info
+    %button.close{"data-dismiss" => "alert", :type => "button"} ×
+    %h4.alert-heading Noticia!
+    %p.mb-0= notice
+- if !alert.nil?
+  .alert.alert-dismissible.alert-danger
+    %button.close{"data-dismiss" => "alert", :type => "button"} ×
+    %h4.alert-heading Alert!
+    %p.mb-0= alert
