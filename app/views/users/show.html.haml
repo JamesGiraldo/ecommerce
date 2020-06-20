@@ -1,3 +1,4 @@
+- breadcrumb :user_show, @user
 .jumbotron
   - if user_signed_in?
     .row
@@ -6,7 +7,7 @@
       .col-2
         .botonContainer
           - if user_signed_in?
-            = link_to "Atras" , root_path, class: "btn btn-secondary float-right"
+            = link_to "Editar" , edit_user_path, class: "btn btn-warning float-right"
   .row
     .col-md-12
       = @user.city

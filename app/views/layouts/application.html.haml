@@ -12,5 +12,8 @@
   %body
     = render "partials/navbar"
     = render "partials/alerts"
+    .container
+      .container
+        = breadcrumbs display_single_fragment: true, separator: ' / ' ,class: "breadcrumbpropio"
     = yield
     = render "partials/footer"
