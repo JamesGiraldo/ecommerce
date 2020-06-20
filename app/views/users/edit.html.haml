@@ -1,0 +1,65 @@
+.container
+  .row.my-5
+    .offset-md-1.col-md-10
+      .card.text-white.p-5.bg-primary
+        .card-body
+          %h2.mb-4.text-center
+            Editar datos #{current_user.name.upcase} #{current_user.last_name.upcase}
+          = form_for current_user, url: user_path, builder: BootstrapFormBuilder   do |f|
+            .row
+              = f.errors
+              .col-md-3
+                .form-group
+                  = f.label :email
+              .col-md-9
+                .form-group
+                  = f.email_field :email, autofocus: true, autocomplete: "email", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :name
+              .col-md-9
+                .form-group
+                  = f.text_field :name, autofocus: true, autocomplete: "name", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :last_name
+              .col-md-9
+                .form-group
+                  = f.text_field :last_name, autofocus: true, autocomplete: "last_name", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :age
+              .col-md-9
+                .form-group
+                  = f.number_field :age, autofocus: true, autocomplete: "age", requerid: true, class: "form-control", min: 1
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :state
+              .col-md-9
+                .form-group
+                  = f.text_field :state, autofocus: true, autocomplete: "state", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :city
+              .col-md-9
+                .form-group
+                  = f.text_field :city, autofocus: true, autocomplete: "city", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :street
+              .col-md-9
+                .form-group
+                  = f.text_field :street, autofocus: true, autocomplete: "street", requerid: true, class: "form-control"
+            .row
+              .offset-md-3.col-md-4
+                .form-group
+                  = f.submit "Actualizar", class: "btn btn-secondary btn-block"
+              .col-md-4
+                .form-group
+                  = link_to "Atras", root_path , class: "btn btn-secondary btn-block"            

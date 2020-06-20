@@ -17,15 +17,22 @@
           %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"} Categorias
           .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
             %a.dropdown-item{:href => "#"} Action
-            %a.dropdown-item{:href => "#"} Another action
-            %a.dropdown-item{:href => "#"} Something else here
       %form.form-inline.m-0
         %input.form-control.mr-2.my-1{:placeholder => "¿Qué Buscas?", :type => "text"}/
         %button.btn.btn-primary.my-1{:type => "submit"} Buscar
       %a.btn.btn-default.navbar-btn.mx-1.btn-primary.py-1
         %i.fa.fa-fw.fa-shopping-cart.fa-lg
-      - if user_signed_in?
-        = link_to "Cerrar Sesión", destroy_user_session_path, method: :delete
-      - else
-        = link_to new_user_session_path,  class: "btn btn-default navbar-btn mx-1 btn-primary py-1"  do
-          %i.fa.fa-fw.fa-user.fa-lg
+      %ul.navbar-nav.mr-auto
+        %li.nav-item
+        - if user_signed_in?
+          %li.nav-item.dropdown
+            %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"} Perfil
+            .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
+              =link_to "Mis Datos", user_path, class: "dropdown-item"
+              =link_to "Modificar Datos", edit_user_path, class: "dropdown-item"
+              =link_to "Cambiar Contraseña", cambiar_password_user_path, class: "dropdown-item"
+              - if user_signed_in?
+                = link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "dropdown-item"
+        - else
+          = link_to new_user_session_path,  class: "btn btn-default navbar-btn mx-1 btn-primary py-1"  do
+            %i.fa.fa-fw.fa-user.fa-lg

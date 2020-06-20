@@ -1,0 +1,12 @@
+.jumbotron
+  - if user_signed_in?
+    .row
+      .col-10
+        %h1.H1.card-title.title= @user.name
+      .col-2
+        .botonContainer
+          - if user_signed_in?
+            = link_to "Atras" , root_path, class: "btn btn-secondary float-right"
+  .row
+    .col-md-12
+      = @user.city

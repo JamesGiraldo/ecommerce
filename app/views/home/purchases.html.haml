@@ -1,2 +1,19 @@
-%h1 Home#purchases
-%p Find me in app/views/home/purchases.html.haml
+.py-5
+  .container
+    .row
+      =render "home/panel"
+      .col-md-9
+        .card.p-2
+          .card-body
+            %h1.mb-3.text-center.text-capitalize=params[:action]
+            %h3.mb-2.text-center Productos
+            %ul.list-group
+              %li.list-group-item.d-flex.justify-content-between.align-items-center
+                Disponibles
+                %span.dadge.badge-pill.badge-primary 4
+              %li.list-group-item.d-flex.justify-content-between.align-items-center
+                Agotados
+                %span.dadge.badge-pill.badge-primary 2
+              %li.list-group-item.d-flex.justify-content-between.align-items-center
+                Vendidos
+                %span.dadge.badge-pill.badge-primary 1
