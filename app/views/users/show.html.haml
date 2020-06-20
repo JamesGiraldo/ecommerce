@@ -2,12 +2,8 @@
 .jumbotron
   - if user_signed_in?
     .row
-      .col-10
+      .col-12
         %h1.H1.card-title.title= @user.name
-      .col-2
-        .botonContainer
-          - if user_signed_in?
-            = link_to "Editar" , edit_user_path, class: "btn btn-warning float-right"
   .row
     .col-md-12
       = @user.city
