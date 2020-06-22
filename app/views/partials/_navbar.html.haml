@@ -1,0 +1,39 @@
+%nav.navbar.navbar-expand-md.bg-secondary.navbar-dark
+  .container
+    %a.navbar-brand{:href => "#"} Commerce
+    %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      %ul.navbar-nav.mr-auto
+        %li.nav-item
+          =link_to "Inicio", root_path, class: "nav-link"
+        %li.nav-item
+          =link_to "Compras", home_purchases_path, class: "nav-link"
+        %li.nav-item
+          =link_to "Historial", home_history_path, class: "nav-link"
+        %li.nav-item
+          =link_to "Faboritos", home_favorites_path, class: "nav-link"
+        %li.nav-item.dropdown
+          %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"} Categorias
+          .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}            
+            - @categories.each do |category|
+              =link_to category.name, category, class: "dropdown-item"
+      %form.form-inline.m-0
+        %input.form-control.mr-2.my-1{:placeholder => "¿Qué Buscas?", :type => "text"}/
+        %button.btn.btn-primary.my-1{:type => "submit"} Buscar
+      %a.btn.btn-default.navbar-btn.mx-1.btn-primary.py-1
+        %i.fa.fa-fw.fa-shopping-cart.fa-lg
+      %ul.navbar-nav.mr-auto
+        %li.nav-item
+        - if user_signed_in?
+          %li.nav-item.dropdown
+            %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"} Perfil
+            .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
+              =link_to "Mis Datos", user_path, class: "dropdown-item"
+              =link_to "Modificar Datos", edit_user_path, class: "dropdown-item"
+              =link_to "Cambiar Contraseña", cambiar_password_user_path, class: "dropdown-item"
+              - if user_signed_in?
+                = link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "dropdown-item"
+        - else
+          = link_to new_user_session_path,  class: "btn btn-default navbar-btn mx-1 btn-primary py-1"  do
+            %i.fa.fa-fw.fa-user.fa-lg

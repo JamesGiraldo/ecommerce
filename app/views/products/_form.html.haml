@@ -1,0 +1,66 @@
+.container
+  .row.my-5
+    .offset-md-1.col-md-10
+      .card.text-white.p-5.bg-primary
+        .card-body
+          %h1.mb-4.text-center= title ||= "Titulo"
+          = form_for @product, builder: BootstrapFormBuilder do |f|
+            .row
+              = f.errors
+              .col-md-3
+                .form-group
+                  = f.label :Nombre
+              .col-md-9
+                .form-group
+                  = f.text_field :p_name, requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :Descripcion
+              .col-md-9
+                .form-group
+                  = f.text_area :p_description, requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :Precio
+              .col-md-9
+                .form-group
+                  = f.text_field :p_price, requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :Quantity
+              .col-md-9
+                .form-group
+                  = f.number_field :p_quantify, requerid: true, class: "form-control", min: 1
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :Send
+              .col-md-9
+                .form-group
+                  = f.text_field :p_send, requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :Aviable
+              .col-md-9
+                .form-group
+                  = f.check_box :p_avaliable, requerid: true
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :Categorias
+              .col-md-9
+                .form-group
+                  - Category.all.each do |category|
+                    = check_box_tag "categories[]", category.id
+                    = category.name
+            .row
+              .offset-md-3.col-md-4
+                .form-group
+                  = f.submit "Enviar", class: "btn btn-secondary btn-block"
+              .col-md-4
+                .form-group
+                  = link_to "Atras", products_path , class: "btn btn-secondary btn-block"

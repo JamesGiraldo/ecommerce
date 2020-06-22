@@ -1,0 +1,94 @@
+.container
+  .row.my-5
+    .offset-md-1.col-md-10
+      .card.text-white.p-5.bg-primary
+        .card-body
+          %h1.mb-4.text-center Registrarse
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), builder: BootstrapFormBuilder ) do |f|
+            .row
+              = f.errors
+              .col-md-3
+                .form-group
+                  = f.label :email
+              .col-md-9
+                .form-group
+                  = f.email_field :email, autofocus: true, autocomplete: "email", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :password
+              .col-md-9
+                .form-group
+                  = f.password_field :password, autofocus: true, autocomplete: "off", requerid: true, class: "form-control"
+                  - if @minimum_password_length
+                    %em
+                      (#{@minimum_password_length} Caracteres Minimos)
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :password_confirmation
+              .col-md-9
+                .form-group
+                  = f.password_field :password_confirmation, autofocus: true, autocomplete: "off", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :name
+              .col-md-9
+                .form-group
+                  = f.text_field :name, autofocus: true, autocomplete: "name", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :last_name
+              .col-md-9
+                .form-group
+                  = f.text_field :last_name, autofocus: true, autocomplete: "last_name", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :age
+              .col-md-9
+                .form-group
+                  = f.number_field :age, autofocus: true, autocomplete: "age", requerid: true, class: "form-control", min: 1
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :state
+              .col-md-9
+                .form-group
+                  = f.text_field :state, autofocus: true, autocomplete: "state", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :city
+              .col-md-9
+                .form-group
+                  = f.text_field :city, autofocus: true, autocomplete: "city", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :street
+              .col-md-9
+                .form-group
+                  = f.text_field :street, autofocus: true, autocomplete: "street", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :street
+              .col-md-9
+                .form-group
+                  = f.file_field :perfil, autofocus: true, placeholder: "Imagen", autocomplete: "name", requerid: true, class: "form-control"
+            .row
+              .col-12
+                .form-group
+                  - if devise_mapping.rememberable?
+                    = f.label "Recordar"
+                    = f.check_box :remember_me
+            .row
+              .offset-md-3.col-md-4
+                .form-group
+                  = f.submit "Registrar", class: "btn btn-secondary btn-block"
+              .col-md-4
+                .form-group
+                  = render "devise/shared/links"

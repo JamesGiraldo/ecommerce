@@ -1,0 +1,18 @@
+- breadcrumb :administrador
+.py-5
+  .container
+    .row
+      =render "home/panel"
+      .col-md-9
+        .card.p-2
+          .card-body
+            %h1.mb-3.text-center Administrar
+            .row
+              .col-md-3
+                =link_to "Categorias", categories_path, class: "btn btn-primary btn-block my-2"
+              .col-md-3
+                =link_to "Nueva Categorias", new_category_path, class: "btn btn-primary btn-block my-2"
+              .col-md-3
+                =link_to "Productoss", products_path, class: "btn btn-primary btn-block my-2"
+              .col-md-3
+                =link_to "Nuevo Producto", new_product_path, class: "btn btn-primary btn-block my-2"

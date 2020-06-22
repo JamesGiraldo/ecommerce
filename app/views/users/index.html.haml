@@ -1,0 +1,27 @@
+- breadcrumb :users
+.py-5
+  .container
+    .row
+      =render "home/panel"
+      .col-md-9
+        .card.p-2
+          .card-body
+            %h1.mb-3.text-center.text-capitalize usuarios            
+            .table-responsive
+              %table.table.table-striped.table-bordered.table-hover.dataTables-example
+                %tr
+                  %th NOMBRE
+                  %th APELLIDO
+                  %th EDAD
+                  %th ESTADO
+                  %th CIUDAD
+                  %th COLONIA
+                  %th CALLE
+                  %th UID
+                  %th PROVEEDOR
+                  %th NIVEL DE PERMISO
+                = render partial: "users", collection: @users, as: :user
+              - unless @users.present?
+                %tr
+                  %h2.text-center No Hay Informacion Solicitada
+                  %hr/
