@@ -26,11 +26,11 @@
                   = f.label :Imagen
               .col-md-9
                 .form-group
-                  = f.text_field :c_img, autofocus: true, placeholder: "Imagen", autocomplete: "name", requerid: true, class: "form-control"
+                  = f.file_field :avatar, autofocus: true, placeholder: "Imagen", autocomplete: "name", requerid: true, class: "form-control"
             .row
               .offset-md-3.col-md-4
                 .form-group
                   = f.submit "Enviar", class: "btn btn-secondary btn-block"
               .col-md-4
                 .form-group
-                  = link_to "Atras", root_path , class: "btn btn-secondary btn-block"
+                  = link_to "Atras", categories_path , class: "btn btn-secondary btn-block"

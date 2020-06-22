@@ -4,7 +4,7 @@
       .card.text-white.p-5.bg-primary
         .card-body
           %h1.mb-4.text-center Registrarse
-          = form_for(resource, as: resource_name, url: registration_path(resource_name), builder: BootstrapFormBuilder ) do |f|            
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), builder: BootstrapFormBuilder ) do |f|
             .row
               = f.errors
               .col-md-3
@@ -72,6 +72,13 @@
               .col-md-9
                 .form-group
                   = f.text_field :street, autofocus: true, autocomplete: "street", requerid: true, class: "form-control"
+            .row
+              .col-md-3
+                .form-group
+                  = f.label :street
+              .col-md-9
+                .form-group
+                  = f.file_field :perfil, autofocus: true, placeholder: "Imagen", autocomplete: "name", requerid: true, class: "form-control"
             .row
               .col-12
                 .form-group

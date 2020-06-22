@@ -58,6 +58,13 @@
                 .form-group
                   = f.text_field :street, autofocus: true, autocomplete: "street", requerid: true, class: "form-control"
             .row
+              .col-md-3
+                .form-group
+                  = f.label :Perfil
+              .col-md-9
+                .form-group
+                  = f.file_field :perfil, autofocus: true, autocomplete: "street", requerid: true, class: "form-control"
+            .row
               .offset-md-3.col-md-4
                 .form-group
                   = f.submit "Actualizar", class: "btn btn-secondary btn-block"

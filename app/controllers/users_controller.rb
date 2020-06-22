@@ -24,17 +24,17 @@ class UsersController < ApplicationController
   def update_password
     if current_user.update_with_password(user_params)
       bypass_sign_in(current_user)
-      redirect_to '/'
+      redirect_to '/' , notice: "Contraseña Actualizada"
     else
-      render 'cambiar_password'
+      render 'cambiar_password' , alert: "Problemas Con La Grabacion"
     end
   end
 
   def update
     if current_user.update(user_params)
-      redirect_to edit_user_path
+      redirect_to edit_user_path , notice: "Datos Actualizados"
     else
-      render :edit
+      render :edit , alert: "Problemas Con la Grabacion"
     end
   end
 
@@ -55,6 +55,6 @@ class UsersController < ApplicationController
                                  :age, :state,
                                  :city, :colony,
                                  :street, :uid, :provider,
-                                 :img, :permission_level)
+                                 :perfil, :permission_level)
   end
 end

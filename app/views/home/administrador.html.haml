@@ -6,15 +6,15 @@
       .col-md-9
         .card.p-2
           .card-body
-            %h1.mb-3.text-center.text-capitalize=params[:action]
-            %h3.mb-2.text-center Productos
-            %ul.list-group
-              %li.list-group-item.d-flex.justify-content-between.align-items-center
-                Disponibles
-                %span.dadge.badge-pill.badge-primary 4
-              %li.list-group-item.d-flex.justify-content-between.align-items-center
-                Agotados
-                %span.dadge.badge-pill.badge-primary 2
-              %li.list-group-item.d-flex.justify-content-between.align-items-center
-                Vendidos
-                %span.dadge.badge-pill.badge-primary 1
+            %h1.mb-3.text-center Administrar
+            .row
+              .col-md-3
+                =link_to "Categorias", categories_path, class: "btn btn-primary btn-block my-2"
+              .col-md-3
+                =link_to "NuevaCategorias", new_category_path, class: "btn btn-primary btn-block my-2"
+              .col-md-3
+                %a.btn.btn-primary.btn-block.my-2{:href => "products.html"}
+                  Productos
+              .col-md-3
+                %a.btn.btn-primary.btn-block.my-2{:href => "../products/form.html"}
+                  Nuevo Producto

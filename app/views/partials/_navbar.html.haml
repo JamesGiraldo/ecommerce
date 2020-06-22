@@ -15,8 +15,9 @@
           =link_to "Faboritos", home_favorites_path, class: "nav-link"
         %li.nav-item.dropdown
           %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"} Categorias
-          .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
-            %a.dropdown-item{:href => "#"} Action
+          .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}            
+            - @categories.each do |category|
+              =link_to category.name, category, class: "dropdown-item"
       %form.form-inline.m-0
         %input.form-control.mr-2.my-1{:placeholder => "¿Qué Buscas?", :type => "text"}/
         %button.btn.btn-primary.my-1{:type => "submit"} Buscar

@@ -77,3 +77,5 @@ gem 'gretel'
 # bootstrap
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
+gem 'cancancan', '~> 3.1'
+gem 'carrierwave', '~> 2.0'

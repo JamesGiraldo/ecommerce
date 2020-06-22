@@ -1,26 +1,36 @@
 - breadcrumb :categories
-%h1 Listing categories
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Description
-      %th C img
-      %th
-      %th
-      %th
-
-  %tbody
-    - @categories.each do |category|
-      %tr
-        %td= category.name
-        %td= category.description
-        %td= category.c_img
-        %td= link_to 'Show', category
-        %td= link_to 'Edit', edit_category_path(category)
-        %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Category', new_category_path
+.container.py-5
+  .row
+    .col.md-12
+      .card
+        .card-body
+          .container
+            %h1.text-center Listado Categorias
+            .row
+              .col-6
+                .container.my-4
+                = link_to 'New Category', new_category_path, class:"btn btn-block btn-primary"
+              .col-6
+                .container.my-4
+                = link_to 'Atras', home_administrador_path, class:"btn btn-block btn-primary"
+              .table-responsive
+                %table.table
+                  %thead
+                    %tr
+                      %th Name
+                      %th Description
+                      %th Avatar
+                      %th
+                      %th
+                      %th
+                  %tbody
+                    - @categories.each do |category|
+                      %tr
+                        %td= category.name
+                        %td= category.description
+                        %td
+                          - if category.avatar?
+                            = image_tag category.avatar.url(:thumb), class: "rounded-circle"                        
+                        %td= link_to 'Show', category, class:"btn btn-block btn-primary"
+                        %td= link_to 'Edit', edit_category_path(category), class:"btn btn-block btn-primary"
+                        %td= link_to 'Destroy', category, method: :delete, data: { confirm: "Estas Seguro?" }, class:"btn btn-block btn-primary"

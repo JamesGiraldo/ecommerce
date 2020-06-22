@@ -10,6 +10,21 @@ crumb :categories do
   link "Categorias", categories_path
 end
 
+crumb :new_category do |category|
+  link "Nueva Categoria", new_category_path(category)
+  parent :categories, category
+end
+
+crumb :show_category do |category|
+  link "Categoria #{category.name}", category_path(category)
+  parent :categories, category
+end
+
+crumb :edit_category do |category|
+  link "Editar #{category.name}", edit_category_path(category)
+  parent :categories, category
+end
+
 crumb :administrador do
   link "Administracion", home_administrador_path
 end

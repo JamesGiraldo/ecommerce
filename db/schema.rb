@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_010937) do
+ActiveRecord::Schema.define(version: 2020_06_22_011255) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "c_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 2020_06_20_010937) do
     t.string "street"
     t.string "uid"
     t.string "provider"
-    t.string "img"
     t.integer "permission_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "perfil"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

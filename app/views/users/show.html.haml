@@ -1,9 +1,28 @@
 - breadcrumb :user_show, @user
-.jumbotron
-  - if user_signed_in?
-    .row
-      .col-12
-        %h1.H1.card-title.title= @user.name
-  .row
-    .col-md-12
-      = @user.city
+.container
+  .row.my-5
+    .offset-md-1.col-md-10
+      .card.p-5
+        .card-body
+          .container
+            .row
+              .col-8
+                %h2.titulo-Narajanja Mis Datos!
+              .col-4
+                = link_to "Atras", root_path, class: "float-right  btn btn-primary btn-lg"
+            .row.eso
+              .col-md-6
+                .form-group
+                  .row
+                    .col-md-6
+                      - if @user.perfil?
+                        = image_tag @user.perfil.url(:thumb), class: " text-center userperfil" , title: "Mi Perfil"
+                      - else
+                        = image_tag 'desarrollo_web' , class: " text-center imghome circlo"
+                    .col-md-6
+                .form-group
+                  = @user.name
+                  = @user.city
+                  = @user.age
+              .col-md-6
+                .form-group
