@@ -18,9 +18,10 @@ Rails.application.routes.draw do
   get 'home/purchases'
   get 'home/products'
   get 'home/sales'
-  get 'home/summary' 
+  get 'home/summary'
   get 'home/history'
   get 'home/favorites'
   resources :categories
+  resources :products
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

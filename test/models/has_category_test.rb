@@ -1,17 +1,16 @@
 # == Schema Information
 #
-# Table name: categories
+# Table name: has_categories
 #
 #  id          :integer          not null, primary key
-#  name        :string
-#  description :text
+#  product_id  :integer
+#  category_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  avatar      :string
 #
 require 'test_helper'
 
-class CategoryTest < ActiveSupport::TestCase
+class HasCategoryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

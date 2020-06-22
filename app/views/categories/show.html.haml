@@ -1,18 +1,33 @@
 - breadcrumb :show_category, @category
 .container.my-5
   .row
-    .col-md-12
+    .col-12
       .card
         .card-body
-          %h1.text-center= @category.name
-          - if can? :update, @category
-            .row
-              .offset-md-3.col-md-3
-                = link_to 'Edit', edit_category_path(@category), class: "btn btn-primary btn-block"
-              .col-md-3
-                = link_to 'Back', categories_path, class: "btn btn-secondary btn-block"
-          %p= @category.description
-          - if @category.avatar?
-            = image_tag @category.avatar.url(:thumb), class: "rounded-circle"
-          - else
-            = image_tag 'desarrollo_web' , class: "rounded-circle"
+          .row
+            .col-9
+              .row
+                .col-12
+                  %h1.text-center= @category.name
+                - if can? :update, @category
+                  .offset-md-3.col-md-3
+                    = link_to 'Edit', edit_category_path(@category), class: "btn btn-primary btn-block"
+                  .col-md-3
+                    = link_to 'Back', categories_path, class: "btn btn-secondary btn-block"
+                .col-12
+                %p.my-2= @category.description
+            .col-3
+              - if @category.avatar?
+                = image_tag @category.avatar.url(:thumb), class: "img-fluid"
+              - else
+                = image_tag 'desarrollo_web' , class: "img-fluid"
+  .row
+    - @category.products.each do |product|
+      .col-md-4.my-5
+        .card.h-100
+          .card-body
+            %p= product.p_name
+            %p= truncate(product.p_description, length: 100)
+            - if can? :update, product
+              .text-right
+                = link_to "Editar", edit_product_path(product), class: "btn btn-info my-3"

@@ -11,10 +11,8 @@
               .col-md-3
                 =link_to "Categorias", categories_path, class: "btn btn-primary btn-block my-2"
               .col-md-3
-                =link_to "NuevaCategorias", new_category_path, class: "btn btn-primary btn-block my-2"
+                =link_to "Nueva Categorias", new_category_path, class: "btn btn-primary btn-block my-2"
               .col-md-3
-                %a.btn.btn-primary.btn-block.my-2{:href => "products.html"}
-                  Productos
+                =link_to "Productoss", products_path, class: "btn btn-primary btn-block my-2"
               .col-md-3
-                %a.btn.btn-primary.btn-block.my-2{:href => "../products/form.html"}
-                  Nuevo Producto
+                =link_to "Nuevo Producto", new_product_path, class: "btn btn-primary btn-block my-2"
