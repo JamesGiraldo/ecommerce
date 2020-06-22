@@ -3,9 +3,29 @@ crumb :root do
 end
 
 crumb :products do
-  link "Productos", home_products_path
+  link "Resumen De Productos", home_products_path
 end
 
+crumb :productos do
+  link "Productos", products_path
+end
+
+crumb :new_product do |product|
+  link "Nueva Categoria", new_product_path(product)
+  parent :productos, product
+end
+
+crumb :show_product do |product|
+  link "Categoria #{product.p_name}", product_path(product)
+  parent :productos, product
+end
+
+crumb :edit_product do |product|
+  link "Editar #{product.p_name}", edit_product_path(product)
+  parent :productos, product
+end
+
+# categorias
 crumb :categories do
   link "Categorias", categories_path
 end

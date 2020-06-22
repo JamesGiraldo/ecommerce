@@ -1,4 +1,4 @@
-- breadcrumb :categories
+- breadcrumb :articles
 .container.py-5
   .row
     .col.md-12
@@ -30,7 +30,7 @@
                         %td= category.description
                         %td
                           - if category.avatar?
-                            = image_tag category.avatar.url(:thumb), class: "rounded-circle"                        
+                            = image_tag category.avatar.url(:thumb), class: "rounded-circle"
                         %td= link_to 'Show', category, class:"btn btn-block btn-primary"
                         %td= link_to 'Edit', edit_category_path(category), class:"btn btn-block btn-primary"
                         %td= link_to 'Destroy', category, method: :delete, data: { confirm: "Estas Seguro?" }, class:"btn btn-block btn-primary"
