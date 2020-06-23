@@ -15,6 +15,7 @@
 #
 class Product < ApplicationRecord
   belongs_to :user
+  has_many :imagenes, :dependent => :destroy
   has_many :has_categories, :dependent => :destroy
   has_many :categories, through: :has_categories, :dependent => :destroy
   after_create :save_categories
@@ -23,7 +24,7 @@ class Product < ApplicationRecord
   validates :p_name, presence: true, length: {minimum: 10, too_short: "Minimo Son %{count} Caracteres"}
   validates :p_description, presence: true, length: {minimum: 20, too_short: "Minimo Son %{count} Caracteres"}
   validates :p_price, presence: true, :numericality => true
-  validates :p_send, presence: true, :numericality => true  
+  validates :p_send, presence: true, :numericality => true
 
   def categories=(value)
     @categories = value

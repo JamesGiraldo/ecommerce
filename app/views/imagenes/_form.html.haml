@@ -4,33 +4,33 @@
       .card.p-5
         .card-body
           %h1.mb-4.text-center= title ||= "Titulo"
-          = form_for @category, builder: BootstrapFormBuilder do |f|
+          = form_for [@product , @imagen], builder: BootstrapFormBuilder do |f|
             .row
               = f.errors
               .col-md-3
                 .form-group
-                  = f.label :Nombre
+                  = f.label :Titulo
               .col-md-9
                 .form-group
-                  = f.text_field :name, autofocus: true, placeholder: "Nombre", autocomplete: "name", requerid: true, class: "form-control"
+                  = f.text_field :title, requerid: true, class: "form-control"
             .row
               .col-md-3
                 .form-group
                   = f.label :Decripcion
               .col-md-9
                 .form-group
-                  = f.text_area :description,  placeholder: "50 Caracteres Minimos", autofocus: true, autocomplete: "name", requerid: true, class: "form-control"
+                  = f.text_area :description,  placeholder: "50 Caracteres Minimos", requerid: true, class: "form-control"
             .row
               .col-md-3
                 .form-group
                   = f.label :Imagen
               .col-md-9
                 .form-group
-                  = f.file_field :avatar, autofocus: true, placeholder: "Imagen", autocomplete: "name", requerid: true, class: "form-control"
+                  = f.file_field :avatar, requerid: true, class: "form-control"
             .row
               .offset-md-3.col-md-4
                 .form-group
                   = f.submit "Enviar", class: "btn btn-primary btn-block"
               .col-md-4
                 .form-group
-                  = link_to "Atras", categories_path , class: "btn btn-secondary btn-block"
+                  = link_to "Atras", product_path(@product) , class: "btn btn-secondary btn-block"
