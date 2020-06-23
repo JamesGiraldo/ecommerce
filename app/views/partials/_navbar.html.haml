@@ -15,7 +15,7 @@
           =link_to "Faboritos", home_favorites_path, class: "nav-link"
         %li.nav-item.dropdown
           %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"} Categorias
-          .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}            
+          .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
             - @categories.each do |category|
               =link_to category.name, category, class: "dropdown-item"
       %form.form-inline.m-0
@@ -29,7 +29,7 @@
           %li.nav-item.dropdown
             %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"} Perfil
             .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
-              =link_to "Mis Datos", user_path, class: "dropdown-item"
+              =link_to "#{current_user.name} #{current_user.last_name}", user_path, class: "dropdown-item"
               =link_to "Modificar Datos", edit_user_path, class: "dropdown-item"
               =link_to "Cambiar Contraseña", cambiar_password_user_path, class: "dropdown-item"
               - if user_signed_in?
