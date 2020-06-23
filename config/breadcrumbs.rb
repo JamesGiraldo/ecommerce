@@ -16,13 +16,23 @@ crumb :new_product do |product|
 end
 
 crumb :show_product do |product|
-  link "Categoria #{product.p_name}", product_path(product)
+  link "#{product.p_name}", product_path(product)
   parent :productos, product
 end
 
 crumb :edit_product do |product|
   link "Editar #{product.p_name}", edit_product_path(product)
   parent :productos, product
+end
+
+crumb :edit_product_imagen do |product|
+  link "Editar Imagen", edit_product_imagen_path(product)
+  parent :show_product, product
+end
+
+crumb :new_product_imagen do |product|
+  link "Nueva Imagen", new_product_imagen_path(product)
+  parent :show_product, product
 end
 
 # categorias

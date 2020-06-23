@@ -28,6 +28,7 @@
           .card-body
             %p= product.p_name
             %p= truncate(product.p_description, length: 100)
-            - if can? :update, product
-              .text-right
+            .text-right
+              = link_to "Ver", product_path(product), class: "btn btn-info my-3"
+              - if can? :update, product
                 = link_to "Editar", edit_product_path(product), class: "btn btn-info my-3"

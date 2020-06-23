@@ -1,7 +1,7 @@
 .container
   .row.my-5
     .offset-md-1.col-md-10
-      .card.text-white.p-5.bg-primary
+      .card.p-5
         .card-body
           %h1.mb-4.text-center= title ||= "Titulo"
           = form_for @product, builder: BootstrapFormBuilder do |f|
@@ -60,7 +60,7 @@
             .row
               .offset-md-3.col-md-4
                 .form-group
-                  = f.submit "Enviar", class: "btn btn-secondary btn-block"
+                  = f.submit "Enviar", class: "btn btn-primary btn-block"
               .col-md-4
                 .form-group
                   = link_to "Atras", products_path , class: "btn btn-secondary btn-block"

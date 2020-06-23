@@ -1,0 +1,6 @@
+%h1= img.title
+%p= img.description
+- if can? :update, img
+  = link_to "Editar", edit_product_imagen_path(@product, img), class: "btn btn-success"
+- if can? :delete, img  
+  = link_to 'Eliminar', [@product , img], method: :delete, data: { confirm: "Estas Seguro?" }, class:"btn btn-danger"
