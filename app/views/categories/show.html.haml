@@ -18,11 +18,11 @@
                 %p.my-2= @category.description
             .col-3
               - if @category.avatar?
-                = image_tag @category.avatar.url(:thumb), class: "img-fluid"
+                = image_tag @category.avatar.url(:thumb), class: "float-right rounded-circle"
               - else
                 = image_tag 'desarrollo_web' , class: "img-fluid"
   .row
-    - @category.products.each do |product|
+    - @products.each do |product|
       .col-md-4.my-5
         .card.h-100
           .card-body
@@ -32,3 +32,4 @@
               = link_to "Ver", product_path(product), class: "btn btn-info my-3"
               - if can? :update, product
                 = link_to "Editar", edit_product_path(product), class: "btn btn-info my-3"
+    = will_paginate @products

@@ -1,0 +1,20 @@
+.container
+  .row
+    - if !@products.empty?
+      - @products.each do |product|
+        .col-12.col-sm-4
+          .card.my-2
+            .card-body
+              .row
+                .col-8.col-md-4
+                  = link_to product do
+                    %h4= product.p_name
+                .col-4.col-sm-8
+                  - if !product.imagenes.first.nil?
+                    = image_tag product.imagenes.first.avatar.url, class: "img-fluid"
+      = will_paginate @products
+    - else
+      .col-md-8.offset-md-2
+        .card.my-3
+          .card-body
+            %h1.text-center No Existen Coincidencias

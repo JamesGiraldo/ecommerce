@@ -9,8 +9,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
  process resize_to_fill: [300, 300]
 
- version :thumb, :if => :image? do
-   process resize_to_fill: [100, 100]
+ version :thumb, :if => :image? do   
+   process resize_to_fill: [136, 160]
  end
 
  def store_dir

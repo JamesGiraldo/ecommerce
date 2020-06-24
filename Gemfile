@@ -79,3 +79,10 @@ gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
 gem 'cancancan', '~> 3.1'
 gem 'carrierwave', '~> 2.0'
+# paginacion con kaminari
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'kaminari-bootstrap', '~> 3.0', '>= 3.0.1'
+gem 'bootstrap-kaminari-views', '~> 0.0.5'
+#  paginacion con will_paginate
+gem 'will_paginate', '~> 3.3'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
