@@ -86,3 +86,5 @@ gem 'bootstrap-kaminari-views', '~> 0.0.5'
 #  paginacion con will_paginate
 gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
+# gema de estatos
+gem 'aasm', '~> 4.11'

@@ -13,7 +13,7 @@ class Category < ApplicationRecord
     mount_uploader :avatar, AvatarUploader
     has_many :has_categories, :dependent => :destroy
     has_many :products, through: :has_categories, :dependent => :destroy
-    validates :name, presence: true, length: {minimum: 10, too_short: "Minimo Son %{count} Caracteres"}
-    validates :description, presence: true, length: {minimum: 20, too_short: "Minimo Son %{count} Caracteres"}
+    validates :name, presence: true, length: {minimum: 6, too_short: "Minimo Son %{count} Caracteres"}
+    validates :description, presence: true, length: {minimum: 10, too_short: "Minimo Son %{count} Caracteres"}
     validates :avatar, presence: true
 end

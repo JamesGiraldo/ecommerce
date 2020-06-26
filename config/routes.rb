@@ -12,7 +12,12 @@ Rails.application.routes.draw do
       get :cambiar_password
     end
   end
+
+  resources :my_shopping_carts, only: %i[create destroy]
+  get "/add/:product_id", as: :add_to_cart, to: "my_shopping_carts#create"
+
   get 'home/search'
+  get 'home/car'
   get 'home/administrador'
   get 'home/reputation'
   get 'home/purchases'
