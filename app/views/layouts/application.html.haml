@@ -8,12 +8,13 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'    
   %body
     = render "partials/navbar"
     = render "partials/alerts"
     .container
       .container
         = breadcrumbs display_single_fragment: true, separator: ' / ' ,class: "breadcrumbpropio"
+    .ir-arriba#ir-arriba
     = yield
     = render "partials/footer"

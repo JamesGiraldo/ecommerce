@@ -3,6 +3,8 @@ class HomeController < ApplicationController
   def index
     @products = Product.all.paginate(page: params[:page], per_page: 6)
   end
+  def car
+  end
 
   def purchases
   end
@@ -11,6 +13,7 @@ class HomeController < ApplicationController
   end
 
   def favorites
+    @favorites = current_user.favorites
   end
   def search
     @products = Product.where("p_name LIKE :query", query: "%#{params[:find]}%").paginate(page: params[:page], per_page: 6)

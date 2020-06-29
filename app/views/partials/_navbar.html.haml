@@ -19,9 +19,9 @@
             - @categories.each do |category|
               =link_to category.name, category, class: "dropdown-item"
       = form_tag "/home/search", :method => :get, :class => "form-inline m-0" do
-        = text_field_tag "find", nil , html: {requere: true}, class: "form-control"
+        = text_field_tag "find", nil , html: {requere: true}, class: "form-control", title: "Buscar"
         %br;
-        = submit_tag "Buscar", class: "btn btn-primary my-1"
+        = submit_tag "Buscar", class: "btn btn-primary my-1", title: "Buscar"
       = link_to home_car_path, class: "btn btn-default navbar-btn mx-1 btn-primary my-1" do
         %i.fa.fa-fw.fa-shopping-cart.fa-lg#mycart.text-white
         = @shopping_cart.products.count

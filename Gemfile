@@ -88,3 +88,6 @@ gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
 # gema de estatos
 gem 'aasm', '~> 4.11'
+# sweet alert
+gem 'rails-assets-bootstrap-sweetalert', source: 'https://rails-assets.org'
+gem 'sweet-alert-confirm'

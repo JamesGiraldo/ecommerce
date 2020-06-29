@@ -16,6 +16,7 @@
 @import "font-awesome";
 @import "bootstrap/functions";
 @import "bootstrap/variables";
+@import "bootstrap-sweetalert";
 
 // $theme-colors: (
 //   primary:  #880e4f,
@@ -38,4 +39,19 @@ body{
 }
 .botones-pegados{
   margin-bottom: 10px;
+}
+
+.ir-arriba{
+  display: none;
+  padding: 20px;
+  background: #fcae70;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  position: fixed;
+  bottom: 35px;
+  right: 20px;
+  border-radius: 35px;
+  background: url('flecha.png');
+  background-size: cover;
 }

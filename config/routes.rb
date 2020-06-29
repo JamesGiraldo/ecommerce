@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :favorites, only: %i[create destroy]
   resources :my_shopping_carts, only: %i[create destroy]
   get "/add/:product_id", as: :add_to_cart, to: "my_shopping_carts#create"
 

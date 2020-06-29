@@ -14,4 +14,36 @@
 //= require jquery
 //= require popper
 //= require bootstrap
+//= require sweetalert2.all.js
+//= require bootstrap-sweetalert
+//= require sweet-alert-confirm
 //= require cart
+var ap_accions = {
+  toast_alert(type, title, timer){
+    Swal({
+      position: 'center',
+      type: type,
+      title: title,
+      showCancelButton: false,
+      timer: timer
+    })
+  }
+}
+
+
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+  $('#ir-arriba').click(function(e){
+    e.preventDefault();
+    $('body, html').animate({
+        scrollTop: '0px'
+      }, 300);
+    });
+  $(window).scroll(function(){
+    if( $(this).scrollTop() > 0 ){
+        $('#ir-arriba').slideDown(300);
+    } else {
+      $('#ir-arriba').slideUp(300);
+    }
+  });
+});
