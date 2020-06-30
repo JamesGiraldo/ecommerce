@@ -15,8 +15,6 @@
 //= require popper
 //= require bootstrap
 //= require sweetalert2.all.js
-//= require bootstrap-sweetalert
-//= require sweet-alert-confirm
 //= require cart
 var ap_accions = {
   toast_alert(type, title, timer){
@@ -25,7 +23,7 @@ var ap_accions = {
       type: type,
       title: title,
       showCancelButton: false,
-      timer: timer
+      timer: timer,
     })
   }
 }

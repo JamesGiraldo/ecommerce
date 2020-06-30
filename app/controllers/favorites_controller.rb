@@ -4,7 +4,8 @@ class FavoritesController < ApplicationController
     favorite = Favorite.new(product_id: params[:product_id], user_id: current_user.id)
     favorite.set_product(params[:product_id], current_user.id)
     if favorite.save
-      @response = "Guardamos el Producto En Favoritos"
+      product = favorite.product.p_name
+      @response = "Guardamos el Producto En Favoritos '#{product}'"
       render json: {response: @response}
     else
       render json: favorite.errors, status: 400

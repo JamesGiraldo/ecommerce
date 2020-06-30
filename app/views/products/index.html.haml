@@ -40,5 +40,5 @@
                         - if user_signed_in? && current_user.is_admin?
                           %td= link_to '', new_product_imagen_path(product), class:"fa fa-picture-o btn btn-block btn-success", title: "Add Imagen"
                           %td= link_to '', edit_product_path(product), class:"fa fa-wrench btn btn-block btn-warning", title: "Editar"
-                          %td= link_to '', product, method: :delete, data: { confirm: "Estas Seguro?" }, class:"fa fa-trash btn btn-block btn-danger", title: "Eliminar?"
+                          %td= link_to '', product, method: :delete, data: {confirm: "¿Esta Seguro?", mensaje: 'El Producto Se Borrara Definitivamente'}, class:"fa fa-trash btn btn-block btn-danger", title: "Eliminar?"
                 = will_paginate @products

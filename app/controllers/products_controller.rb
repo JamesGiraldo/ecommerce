@@ -54,21 +54,32 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    @product.destroy
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: "Producto #{@product.p_name.upcase} Eliminado Correntamente.!"  }
-      format.json { head :no_content }
+    if @product.destroy
+      respond_to do |format|
+        format.html { redirect_to products_path, alert: "Producto #{@product.p_name.upcase}  Eliminado Correntamente.!" }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to products_path, notice: "Problemas Con La Grabacion.!" }
+      end
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      begin
+        @product = Product.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        redirect_to root_path, alert: "Este Producto Ya No Existe"
+      end
     end
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:p_name, :p_description, :p_price, :p_quantify, :p_send, :p_avaliable, :user_id)
+      params.require(:product).permit(:p_name, :p_description, :categories, 
+                                      :p_price, :p_quantify, :p_send,
+                                      :p_avaliable, :user_id)
     end
 end

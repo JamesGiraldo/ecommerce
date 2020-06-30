@@ -21,7 +21,7 @@ class Product < ApplicationRecord
   belongs_to :user
   has_many :imagenes, :dependent => :destroy
   has_many :has_categories, :dependent => :destroy
-  has_many :categories, through: :has_categories, :dependent => :destroy
+  has_many :categories, through: :has_categories
   after_create :save_categories
   validate :validate_categories
   # Validaciones
@@ -37,6 +37,11 @@ class Product < ApplicationRecord
   def getCategories
     @categories
   end
+
+  def paypal_form
+    {id: id, name: p_name, sku: :item, price: (p_price / 100), currency: "USD", quantify: 1}
+  end
+
   private
 
   def save_categories

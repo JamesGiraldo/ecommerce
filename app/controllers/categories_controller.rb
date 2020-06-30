@@ -56,10 +56,15 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    @category.destroy
-    respond_to do |format|
-      format.html { redirect_to categories_url, alert: "#{@category.name.upcase} Eliminada Correctamente!" }
-      format.json { head :no_content }
+    if @category.destroy
+      respond_to do |format|
+        format.html { redirect_to categories_path, alert: "La categoría #{@category.name.upcase} fue destruida con éxito." }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to categories_path, notice: "No Se Puede Eliminar La Categoria #{@category.name.upcase} Por Que Contiene Productos Relacionados" }
+      end
     end
   end
 
