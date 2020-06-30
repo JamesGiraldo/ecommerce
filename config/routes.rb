@@ -17,6 +17,14 @@ Rails.application.routes.draw do
   resources :my_shopping_carts, only: %i[create destroy]
   get "/add/:product_id", as: :add_to_cart, to: "my_shopping_carts#create"
 
+  namespace :paypal do
+    resources :checkouts, only: [:create] do
+      collection do
+        get :complete
+      end
+    end
+  end
+
   get 'home/search'
   get 'home/car'
   get 'home/administrador'

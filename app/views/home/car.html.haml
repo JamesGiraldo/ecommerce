@@ -29,4 +29,4 @@
                   = @shopping_cart.total
             .top-space
               - if @shopping_cart.total > 0
-                %button Botones de Paypal
+                = link_to "Pagar Con PayPal", paypal_checkouts_path, class: "btn btn-info", method: :post
