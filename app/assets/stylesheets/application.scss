@@ -14,12 +14,47 @@
  */
 @import "bootstrap";
 @import "font-awesome";
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap-sweetalert";
+
+// $theme-colors: (
+//   primary:  #880e4f,
+//   secondary: #492898,
+//   info: #7043eb
+// );
+
+.bg-secondary, .pie{
+    background-color: #492898 !important;
+}
+
 body{
   background: #E6E6E6;
 }
 .breadcrumbpropio{
   background: #ded9d9;
   border-radius: 6px;
-  padding: 10px;  
+  padding: 10px;
   margin-top: 15px;
+}
+.botones-pegados{
+  margin-bottom: 10px;
+}
+
+.ir-arriba{
+  display: none;
+  padding: 20px;
+  background: #fcae70;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  position: fixed;
+  bottom: 35px;
+  right: 20px;
+  border-radius: 35px;
+  background: url('flecha.png');
+  background-size: cover;
+}
+.Carro{
+  padding: 10px;
 }

@@ -7,12 +7,13 @@
           .container
             %h1.text-center Listado Productos
             .row
-              .col-6
-                .container.my-4
-                  = link_to 'Nuevo', new_product_path, class:"btn btn-block btn-primary"
-              .col-6
-                .container.my-4
-                  = link_to 'Atras', home_administrador_path, class:"btn btn-block btn-primary"
+              - if user_signed_in? && current_user.is_admin?
+                .col-6
+                  .container.my-4
+                    = link_to 'New Product', new_product_path, class:"btn btn-block btn-info"
+                .col-6
+                  .container.my-4
+                    = link_to 'Atras', home_administrador_path, class:"btn btn-block btn-secondary"
               .table-responsive
                 %table.table
                   %thead
@@ -35,7 +36,9 @@
                         %td= product.p_quantify
                         %td= product.p_send
                         %td= product.p_avaliable ? "Si" : "No"
-                        %td= link_to 'Show', product, class:"btn btn-block btn-primary"
-                        %td= link_to 'Add Imagen', new_product_imagen_path(product), class:"btn btn-block btn-primary"
-                        %td= link_to 'Edit', edit_product_path(product), class:"btn btn-block btn-primary"
-                        %td= link_to 'Destroy', product, method: :delete, data: { confirm: "Estas Seguro?" }, class:"btn btn-block btn-danger"
+                        %td= link_to '', product, class:"fa fa-eye btn btn-block btn-info", title: "Ver"
+                        - if user_signed_in? && current_user.is_admin?
+                          %td= link_to '', new_product_imagen_path(product), class:"fa fa-picture-o btn btn-block btn-success", title: "Add Imagen"
+                          %td= link_to '', edit_product_path(product), class:"fa fa-wrench btn btn-block btn-warning", title: "Editar"
+                          %td= link_to '', product, method: :delete, data: {confirm: "¿Esta Seguro?", mensaje: 'El Producto Se Borrara Definitivamente'}, class:"fa fa-trash btn btn-block btn-danger", title: "Eliminar?"
+                = will_paginate @products

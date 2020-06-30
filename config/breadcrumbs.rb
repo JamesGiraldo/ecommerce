@@ -2,6 +2,26 @@ crumb :root do
   link "Home", root_path
 end
 
+crumb :iniciar_sesion do
+  link "Iniciar Sesión", new_user_session_path
+  parent :root
+end
+
+crumb :new_sesion do
+  link "Registrase", new_user_registration_path
+  parent :iniciar_sesion
+end
+
+crumb :search do
+  link "Busqueda", home_search_path
+  parent :root
+end
+
+crumb :car do
+  link "Mi Carrito De Compras", home_car_path
+  parent :root
+end
+
 crumb :products do
   link "Resumen De Productos", home_products_path
 end
@@ -94,7 +114,7 @@ end
 
 crumb :user_edit do |user|
   link user.name, edit_user_path(user)
-  parent :administrador
+  parent :summary
 end
 
 crumb :user_password_edit do |user|

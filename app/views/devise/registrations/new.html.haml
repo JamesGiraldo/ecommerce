@@ -1,3 +1,4 @@
+- breadcrumb :new_sesion
 .container
   .row.my-5
     .offset-md-1.col-md-10
@@ -78,17 +79,11 @@
                   = f.label :street
               .col-md-9
                 .form-group
-                  = f.file_field :perfil, autofocus: true, placeholder: "Imagen", autocomplete: "name", requerid: true, class: "form-control"
-            .row
-              .col-12
-                .form-group
-                  - if devise_mapping.rememberable?
-                    = f.label "Recordar"
-                    = f.check_box :remember_me
+                  = f.file_field :perfil, autofocus: true, placeholder: "Imagen", autocomplete: "name", requerid: true, class: "form-control"    
             .row
               .offset-md-3.col-md-4
                 .form-group
-                  = f.submit "Registrar", class: "btn btn-secondary btn-block"
+                  = f.submit "Registrar", class: "btn btn-info btn-block"
               .col-md-4
                 .form-group
                   = render "devise/shared/links"
