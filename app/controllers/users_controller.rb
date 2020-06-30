@@ -5,9 +5,13 @@ class UsersController < ApplicationController
   respond_to :html, :json
 
   def index
-    @users = User.all
-    if params[:q].present?
-      @users = @users.where('email ilike :q or name ilike :q', q: "%#{params[:q]}%")
+    if current_user.is_admin?
+      @users = User.all
+      if params[:q].present?
+        @users = @users.where('email ilike :q or name ilike :q', q: "%#{params[:q]}%")
+      end
+    else
+      redirect_to root_path, alert: "No Tiene Permiso Para Esta Vista"
     end
   end
 
