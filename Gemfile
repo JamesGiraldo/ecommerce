@@ -91,3 +91,6 @@ gem 'aasm', '~> 4.11'
 # sweet alert
 gem 'rails-assets-bootstrap-sweetalert', source: 'https://rails-assets.org'
 gem 'sweet-alert-confirm'
+gem 'paypal-sdk-rest'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

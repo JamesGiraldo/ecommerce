@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-mdsm-10 offset-md-1 col-md-8 offset-md-2">
+      <div class="jumbotron">
+        <h1 class="display">Venta <%= @payment.paypal_id[6,20] %> </h1>
+        <table class="table">
+          <tbody class="">
+            <tr class="">
+              <td class="">Numero de Compra</td>
+              <td class=""> <%= @payment.id %> </td>
+            </tr>
+            <tr class="">
+              <td class="">Fecha De Compra</td>
+              <td class=""> <%= @payment.created_at.strftime("%d-%m-%Y")  %> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-xs-12 col-mdsm-10 offset-md-1 col-md-8 offset-md-2">
+      <div class="jumbotron">
+        <table class="table table-striped">
+          <thead class="">
+            <tr class="">
+              <td class="">Nombre</td>
+              <td class="">Precio</td>
+              <td class="">Unidades</td>
+            </tr>
+          </thead>
+          <tbody class="body">
+            <%= @payment.shopping_cart.in_cart.each do |product| %>
+              <tr class="">
+                <td class=""> <%= product[:name] %> </td>
+                <td class=""> <%= product[:price] + product[:quantify] %> </td>
+                <td class=""> <%= product[:quantify] %> </td>
+              </tr>
+            <%end%>
+            <tr class="">
+              <td class="">Total:</td>
+              <td class=""> <%= @payment.shopping_cart.total/100 %> </td>
+              <td class=""> <%= @payment.shopping_cart.my_shopping_carts.count %> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
