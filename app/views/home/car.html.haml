@@ -6,6 +6,7 @@
         .card.large-padding
           .card-body
             .table-responsive
+            - if @shopping_cart.in_cart.present?
               %table.table.table-striped.table-hover.medium#table_shopping_cart
                 %thead
                   %tr
@@ -22,11 +23,14 @@
                       %td
                         %a.btn.btn-danger{:product => "#{product[:id]}", :onclick => "actions.deleteItem(this, #{product[:id]})"}
                           Eliminar
-            .top-space.large-padding.text-right#payment_form
-              %p
-                Total:
-                %strong.medium#mycartTotal
-                  = @shopping_cart.total
-            .top-space
-              - if @shopping_cart.total > 0
-                %button Botones de Paypal
+              .top-space.large-padding.text-right#payment_form
+                %p
+                  Total:
+                  %strong.medium#mycartTotal
+                    = @shopping_cart.total
+              .top-space
+                - if @shopping_cart.total > 0
+                  %button Botones de Paypal
+            - else
+              %h1.text-center Lo Siento
+              %h5.text-center No Hay Informacion Agrege Productos Ah Su Carrito...
