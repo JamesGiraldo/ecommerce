@@ -30,7 +30,9 @@
                     = @shopping_cart.total
               .top-space
                 - if @shopping_cart.total > 0
-                  %button Botones de Paypal
+                  .col-sm-4.col-md-3.inline-block
+                    =button_to "/pay", method: :post, class: "btn btn-info" do
+                      Pagar Con PayPal
             - else
               %h1.text-center Lo Siento
               %h5.text-center No Hay Informacion Agrege Productos Ah Su Carrito...

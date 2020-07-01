@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   resources :favorites, only: %i[create destroy]
   resources :my_shopping_carts, only: %i[create destroy]
+
+  post "/pay", to: "payments#create"
+  get "/checkout", to: "payments#checkouts"
+
   get "/add/:product_id", as: :add_to_cart, to: "my_shopping_carts#create"
 
   get 'home/search'
