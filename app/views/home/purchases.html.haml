@@ -6,15 +6,14 @@
       .col-md-9
         .card.p-2
           .card-body
-            %h1.mb-3.text-center.text-capitalize=params[:action]
-            %h3.mb-2.text-center Productos
-            %ul.list-group
-              %li.list-group-item.d-flex.justify-content-between.align-items-center
-                Disponibles
-                %span.dadge.badge-pill.badge-primary 4
-              %li.list-group-item.d-flex.justify-content-between.align-items-center
-                Agotados
-                %span.dadge.badge-pill.badge-primary 2
-              %li.list-group-item.d-flex.justify-content-between.align-items-center
-                Vendidos
-                %span.dadge.badge-pill.badge-primary 1
+            - if @payments.present?
+              %h1.mb-3.text-center.text-capitalize=params[:action]
+              %h3.mb-2.text-center Productos
+              %ul.list-group
+                - @payments.each do |pay|
+                  %li.list-group-item.d-flex.justify-content-between.align-items-center
+                    %p= "Compra #{pay.paypal_id}"
+                    = link_to "Ver Mas", payment_path(pay), class: "btn btn-info"
+            - else
+              %h1.text-center Lo Siento
+              %h5.text-center No Hay Informacion De Compras...

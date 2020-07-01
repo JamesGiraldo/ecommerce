@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   include PayPal::SDK::REST
-
+  before_action :set_payment, only: [:show]
   def checkout
     @my_payment = MyPayment.find_by(paypal_id: params[:paymentId])
     if @my_payment.nil?
@@ -38,6 +38,7 @@ class PaymentsController < ApplicationController
          @payment =  MyPayment.create!(
            paypal_id: paypal_helper.id,
            ip: request.remote_ip,
+           user_id: current_user.id,
            shopping_cart_id: cookies[:shopping_cart_id]
          )
          redirect_to paypal_helper.links.find{|v| v.method == "REDIRECT"}.href
@@ -47,4 +48,15 @@ class PaymentsController < ApplicationController
       end
   end
 
+  def show
+    respond_to do |format|
+      format.html
+       format.pdf {render template: 'payments/payment', title: "Venta #{@payment.id}", pdf: "venta #{@payment.id}", page_size: "A4", zoom: 3} #layout: 'pdf.htaml',
+    end
+  end
+
+  private
+  def set_payment
+    @payment = MyPayment.find(params[:id])
+  end
 end
