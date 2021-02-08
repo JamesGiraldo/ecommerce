@@ -78,7 +78,7 @@ gem 'gretel'
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
 gem 'cancancan', '~> 3.1'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 # paginacion con kaminari
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'kaminari-bootstrap', '~> 3.0', '>= 3.0.1'
